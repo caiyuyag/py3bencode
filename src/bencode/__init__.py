@@ -137,7 +137,7 @@ def encode_dict(x):
     result.append(ord("d"))
 
     for k, v in sorted(x.items()):
-        result.extend(encode_string(str(k)))
+        result.extend(encode_func[type(k)](k))
         result.extend(encode_func[type(v)](v))
 
     result.append(ord("e"))
